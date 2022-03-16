@@ -10,13 +10,15 @@ async function connect() {
     // check queue exist or not if not then create
     const result = await channel.assertQueue('jobs')
 
-    channel.consume("jobs", message => {
+    channel.consume('jobs', message => {
       const input = JSON.parse(message.content.toString())
       console.log(`Received job with input ${input.number}`)
+
+      // decue the message
+      if (input.number == 7) channel.ack(message)
     })
 
     console.log('Waiting for messages')
-    
   } catch (ex) {
     console.error(ex)
   }
