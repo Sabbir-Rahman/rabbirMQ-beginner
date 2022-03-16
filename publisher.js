@@ -1,7 +1,10 @@
 // amqp = advance message queue protocol
 const amqp = require("amqplib")
+
 connect()
-const message = { number: 19 }
+
+const message = { number: process.argv[2] }
+
 async function connect() {
   try {
     const connection = await amqp.connect("amqp://localhost:5672")

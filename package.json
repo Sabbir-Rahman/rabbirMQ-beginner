@@ -4,7 +4,8 @@
   "description": "",
   "main": "publisher.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "publish": "node publisher.js",
+    "consume": "node consumer.js"
   },
   "keywords": [],
   "author": "",
